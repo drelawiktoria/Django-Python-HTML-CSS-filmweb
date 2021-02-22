@@ -1,0 +1,52 @@
+{% extends "APLIKACJA/layout.html" %}
+
+{% block body %}
+ <main class="subpage">
+
+     <div class="subpage__wrapper">
+            <div class="subpage__titleWrapper">
+                <p class="subpage__title">{{film.title}}</p>
+            </div>
+            {% if film.youtube %}
+                <div>
+                    <iframe width="420" height="315" src="https://www.youtube.com/embed/{{ film.youtube }}"></iframe>
+                </div>
+            {% endif %}
+
+            <div  class="subpage__describeWrapper">
+                <div class="subpage__imgWrapper">
+                    <img class="movieWrapper__photo" src="{{ film.photo.url }}">
+
+                </div>
+                <div class="subpage__textWrapper">
+                    <p class="subpage__text">
+                        {{film.description}}
+                    </p>
+                    <p class="subpage__text">
+                        Data premiery : {{film.release_date}}
+                    </p>
+                    <p class="subpage__text">
+                        Długość filmu : {{film.length_video}} (min)
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+<!--
+     <div class="movieWrapper__movie">
+         <div class="movieWrapper__movie">
+                     <img class="movieWrapper__photo" src="{{ film.photo.url }}">
+                </div>
+            </div>
+    <p class="movieWrapper__text"> {{ name.title }}</p>
+    <div class="movieWrapper">
+
+    </div>
+     <img class="movieWrapper__photo" src="{{ film.photo.url }}">
+</main>
+-->
+{% endblock %}

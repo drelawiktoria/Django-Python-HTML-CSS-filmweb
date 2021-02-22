@@ -1,0 +1,24 @@
+{% extends "APLIKACJA/layout.html" %}
+
+{% block body %}
+<script type="text/javascript">
+</script>
+ <main class="movieWrapper">
+     {% for film in Film %}
+
+        {% if not request.GET.q or request.GET.q.lower in film.title.lower %}
+            <a class=" movieWrapper__link" href="/APLIKACJA/{{ film.id }}">
+                <div class="movieWrapper__movie">
+                    {% if film.photo %}
+                        <img class="movieWrapper__photo" src="{{ film.photo.url }}">
+                    {% endif %}
+                    <div class="movieWrapper__describe">
+                        <p class="movieWrapper__text"> {{ film.title }} </p>
+                    </div>
+                </div>
+            </a>
+        {% endif %}
+
+     {% endfor %}
+    </main>
+{% endblock %}

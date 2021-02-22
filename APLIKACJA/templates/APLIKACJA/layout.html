@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>BAZA FILMÓW</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href='{% static "APLIKACJA/style.css" %}?{% now "U" %}'>
+
+    </head>
+
+    <body class="wrapper">
+    <nav class="navigation">
+        <div class="navigation__describe">
+            <p class="navigation__text">Filmy - baza danych</p>
+        </div>
+       <div class="navigation__searching">
+           <form method="GET" action="/APLIKACJA">
+              <input type="text" name="q" value="{{ request.GET.q }}" class="navigation__input">
+              <input type="submit" class="navigation__searchButton" value="Szukaj" />
+           </form>
+
+       </div>
+
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+    </body>
+</html>
